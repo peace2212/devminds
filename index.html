@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MANI's Portfolio</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  .navbar {
+    background-color: rgba(0, 0, 0, 0); /* Semi-transparent black background */
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays on top */
+  }
+  .navbar a {
+    float: left;
+    display: block;
+    color: #e8ebec; /* Neon blue text color */
+    text-align: center;
+    padding: 20px 40px;
+    text-decoration: none; 
+  }
+  label.logo{
+    color: rgb(58, 219, 237);
+    font-size: 35px;
+    font-style: italic; 
+    line-height: 80px;
+    font-weight: bold;
+  }
+  .navbar a:hover {
+     /* Lighter background color on hover */
+    color: #0e0d0d; /* Dark text color on hover */
+  }
+  .video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Black overlay with 60% opacity */
+    z-index: 0;
+  }
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+  }
+  .heading {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #727672; /* Neon green color for text shadow */
+  }
+  .projects {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+  .project-box {
+    margin: 0 10px;
+    
+    padding: 20px;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 2s ease forwards; /* Fade-in animation */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+  }
+  .project-box:hover {
+    transform: scale(1.05); /* Scale up on hover */
+  }
+  .project-box img {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+  }
+  @keyframes slideIn {
+    0% { opacity: 0; transform: translate(-50%, -70%); }
+    100% { opacity: 1; transform: translate(-50%, -50%); }
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+</style>
+</head>
+<body>
+<div class="navbar">
+ <label class="logo">DevMinds</label>
+  <ul>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+    </ul>
+</div>
+
+<div class="video-background">
+  <video autoplay muted loop>
+    <source src="ink_-_67358 (1080p).mp4" type="video/mp4">
+    
+  </video>
+</div>
+
+<div class="overlay"></div>
+
+<div class="content">
+  <h1 class="heading">I'm Manikanta, here are some of my projects</h1>
+  <div class="projects">
+    <div class="project-box">
+      <img src="1.jpg" alt="Project 1">
+      <p>Project 1</p>
+    </div>
+    <div class="project-box">
+      <img src="2.jpg" alt="Project 2">
+      <p>Project 2</p>
+    </div>
+    <div class="project-box">
+      <img src="3.jpg" alt="Project 3">
+      <p>Project 3</p>
+    </div>
+  </div>
+</div>
+<script>
+    // Trigger animation when the page loads
+    window.onload = function() {
+      document.querySelector('.content').style.opacity = '1';
+      var projectBoxes = document.querySelectorAll('.project-box');
+      projectBoxes.forEach(function(box, index) {
+        setTimeout(function() {
+          box.style.opacity = '1';
+        }, (index + 1) * 500); // Stagger animation for each box
+      });
+    };
+  </script>
+</body>
+</html>
